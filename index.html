@@ -1,274 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Aprajitha Corporate Services</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI,Arial,sans-serif;
-}
-
-body{
-
-    background:linear-gradient(-45deg,#001219,#003049,#005f73,#0a9396);
-    background-size:400% 400%;
-    animation:bg 10s ease infinite;
-    color:white;
-    overflow-x:hidden;
-
-}
-
-@keyframes bg{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-nav{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 80px;
-
-}
-
-.logo{
-
-font-size:35px;
-font-weight:bold;
-color:#FFD60A;
-letter-spacing:2px;
-
-}
-
-nav ul{
-
-display:flex;
-list-style:none;
-
-}
-
-nav ul li{
-
-margin-left:30px;
-
-}
-
-nav ul li a{
-
-text-decoration:none;
-color:white;
-font-size:18px;
-transition:.3s;
-
-}
-
-nav ul li a:hover{
-
-color:#FFD60A;
-
-}
-
-.hero{
-
-height:85vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-
-}
-
-.content{
-
-max-width:900px;
-
-}
-
-.content h3{
-
-font-size:25px;
-letter-spacing:5px;
-color:#90E0EF;
-
-}
-
-.content h1{
-
-font-size:75px;
-margin-top:15px;
-color:#FFD60A;
-text-shadow:0px 0px 20px gold;
-
-}
-
-.content p{
-
-font-size:22px;
-margin-top:25px;
-line-height:40px;
-color:#E9ECEF;
-
-}
-
-.buttons{
-
-margin-top:45px;
-
-}
-
-.btn{
-
-display:inline-block;
-padding:18px 40px;
-margin:10px;
-border-radius:50px;
-font-size:20px;
-text-decoration:none;
-font-weight:bold;
-transition:.4s;
-
-}
-
-.btn1{
-
-background:#FFD60A;
-color:black;
-
-}
-
-.btn1:hover{
-
-transform:translateY(-8px);
-box-shadow:0 0 30px gold;
-
-}
-
-.btn2{
-
-border:2px solid white;
-color:white;
-
-}
-
-.btn2:hover{
-
-background:white;
-color:#003049;
-
-}
-
-.scroll{
-
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-font-size:30px;
-animation:move 1.5s infinite;
-
-}
-
-@keyframes move{
-
-0%{transform:translate(-50%,0);}
-50%{transform:translate(-50%,10px);}
-100%{transform:translate(-50%,0);}
-
-}
-
-footer{
-
-text-align:center;
-padding:20px;
-background:rgba(0,0,0,.25);
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Tech Classes</title>
+    <style>
+        /* Modern System Design Variables */
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --brand-primary: #0284c7;
+            --brand-hover: #0369a1;
+            --brand-light: #e0f2fe;
+            --youtube-color: #ef4444;
+            --youtube-hover: #dc2626;
+            --border-color: rgba(15, 23, 42, 0.08);
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Reset & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fixed Glassmorphism Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 16px 40px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--brand-primary);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-primary);
+        }
+
+        .nav-links .nav-btn {
+            background-color: var(--brand-primary);
+            color: white;
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-links .nav-btn:hover {
+            background-color: var(--brand-hover);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .nav-links .nav-yt-btn {
+            color: var(--youtube-color);
+            font-weight: 700;
+        }
+
+        .nav-links .nav-yt-btn:hover {
+            color: var(--youtube-hover);
+        }
+
+        /* Hero Welcome Section */
+        .hero {
+            background: radial-gradient(120% 120% at 50% 0%, #ffffff 60%, var(--brand-light) 100%);
+            text-align: center;
+            padding: 100px 24px 80px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            color: var(--brand-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 580px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Global Button Layout */
+        .btn {
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+        }
+
+        .btn-youtube {
+            background-color: var(--youtube-color);
+            color: white;
+            box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-youtube:hover {
+            background-color: var(--youtube-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Layout Blocks & Segment Breaks */
+        .segment-block {
+            padding: 90px 0;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent);
+            margin: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 56px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Dynamic Grid Layout for Course & Teacher Cards */
+        .course-grid, .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .course-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(2, 132, 199, 0.2);
+        }
+
+        .course-card h3 {
+            color: var(--text-dark);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .course-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 18px;
+            background-color: var(--brand-primary);
+            border-radius: 2px;
+        }
+
+        .course-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .course-card ul {
+            list-style: none;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 20px;
+        }
+
+        .course-card li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        .course-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--brand-primary);
+            font-weight: bold;
+        }
+
+        /* Teachers Section Styling */
+        .teacher-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(2, 132, 199, 0.15);
+        }
+
+        .teacher-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--brand-light);
+            color: var(--brand-hover);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .teacher-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .teacher-badge {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: #475569;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .teacher-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Technical Typing Section Layout */
+        .typing-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .typing-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .typing-info h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .typing-info p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Modern Progress Bars */
+        .progress-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .progress-container {
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #475569;
+        }
+
+        .progress-bar-bg {
+            background-color: #cbd5e1;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--brand-primary), #38bdf8);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .progress-fill-60 { width: 60%; }
+        .progress-fill-100 { width: 100%; }
+
+        /* Structured Application Form Block */
+        .form-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            max-width: 680px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-title-wrapper h2 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 36px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            transition: var(--transition);
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--brand-primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+        }
+
+        /* Checkbox Selectors */
+        .checkbox-card-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14.5px;
+            font-weight: 500;
+        }
+
+        .checkbox-item:hover {
+            border-color: #cbd5e1;
+            background-color: #f1f5f9;
+        }
+
+        .checkbox-item input {
+            width: auto;
+            margin-right: 14px;
+            accent-color: var(--brand-primary);
+            transform: scale(1.15);
+        }
+
+        .checkbox-item.highlighted {
+            border-color: rgba(2, 132, 199, 0.3);
+            background-color: var(--brand-light);
+            color: var(--brand-hover);
+            font-weight: 600;
+        }
+
+        .submit-btn {
+            background-color: var(--brand-primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--brand-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+        }
+
+        /* Minimal Dark Footer */
+        .footer {
+            background-color: var(--text-dark);
+            color: #748094;
+            text-align: center;
+            padding: 48px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Mobile View Restyling */
+        @media (max-width: 768px) {
+            .navbar { padding: 16px 24px; }
+            .nav-links { gap: 16px; }
+            .nav-links a:not(.nav-btn):not(.nav-yt-btn) { display: none; }
+            .hero { padding: 80px 20px 60px; }
+            .hero h1 { font-size: 34px; }
+            .typing-layout { grid-template-columns: 1fr; gap: 32px; }
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+            .form-section, .typing-box, .teacher-card { padding: 32px 20px; }
+            .segment-block { padding: 60px 0; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
+    <!-- Fixed Premium Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">IPL <span>Tech Classes</span></div>
+        <div class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#teachers">Instructors</a>
+            <a href="#typewriting">Typewriting Lab</a>
+            <a href="https://youtube.com/@ipltechnologies5781?si=83vx25Fw5mRDi_dX" target="_blank" class="nav-yt-btn">YouTube Channel</a>
+            <a href="#apply" class="nav-btn">Join Now</a>
+        </div>
+    </div>
 
-<div class="logo">
-APRAJITHA
-</div>
+    <!-- Hero Section Banner -->
+    <div class="hero">
+        <h1>Learn Programming & <span>Typewriting</span> Layout</h1>
+        <p>Start your computer skills journey. Learn step-by-step from zero experience with individual computer access setups.</p>
+        <div class="hero-actions">
+            <a href="#apply" class="btn btn-primary">Fill Admission Form</a>
+            <a href="https://youtube.com/@ipltechnologies5781?si=83vx25Fw5mRDi_dX" target="_blank" class="btn btn-youtube">Watch Content on YouTube</a>
+        </div>
+    </div>
 
-<ul>
+    <!-- Core Layout Area with Segment Separation -->
+    <div class="container">
+        
+        <!-- Segment 1: Available Training Courses -->
+        <div id="courses" class="segment-block">
+            <div class="section-header">
+                <h2 class="section-title">Available Training Courses</h2>
+                <p class="section-subtitle">Select foundational dynamic tracks optimized for logical construction, technical design, and marketing concepts.</p>
+            </div>
+            
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Python Programming</h3>
+                    <p>Great for absolute beginners to start writing basic logic and simple calculation formulas.</p>
+                    <ul>
+                        <li>Variables & Data Types</li>
+                        <li>Loops & If-Else Statements</li>
+                        <li>Functions & Code Logic</li>
+                    </ul>
+                </div>
 
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="hariharan.html">Hariharan</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="contact.html">Contact</a></li>
+                <div class="course-card">
+                    <h3>C & C++ Language</h3>
+                    <p>Build your foundational logical thinking, computer memory understanding, and basic programming rules.</p>
+                    <ul>
+                        <li>Basic Input & Output Syntax</li>
+                        <li>Arrays & String Controls</li>
+                        <li>Introduction to Object Oriented C++</li>
+                    </ul>
+                </div>
 
-</ul>
+                <div class="course-card">
+                    <h3>Java Programming</h3>
+                    <p>Understand standard object structures, code organization, data methods, and clean execution setups.</p>
+                    <ul>
+                        <li>Classes & Objects Basics</li>
+                        <li>Handling Arrays & Logic Flow</li>
+                        <li>Simple Console Projects</li>
+                    </ul>
+                </div>
 
-</nav>
+                <div class="course-card">
+                    <h3>JavaScript Basics</h3>
+                    <p>Learn how to make interactive components and manage dynamic data values directly on web items.</p>
+                    <ul>
+                        <li>Variables & Operators</li>
+                        <li>Interactive Dynamic Changes</li>
+                        <li>Form Entry Verifications</li>
+                    </ul>
+                </div>
 
-<section class="hero">
+                <div class="course-card">
+                    <h3>Web Development</h3>
+                    <p>Master building full responsive website designs using layout structures and modern styling frameworks.</p>
+                    <ul>
+                        <li>HTML5 Semantic Structures</li>
+                        <li>CSS3 Grid & Flexbox Designs</li>
+                        <li>Responsive Layout Standards</li>
+                    </ul>
+                </div>
 
-<div class="content">
+                <div class="course-card">
+                    <h3>Digital Marketing</h3>
+                    <p>Understand key concepts to rank pages, manage traffic, and run strategic promotional content campaigns.</p>
+                    <ul>
+                        <li>Search Engine Optimization (SEO)</li>
+                        <li>Content & Social Media Strategy</li>
+                        <li>Analytics & Traffic Tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<h3>WELCOME TO</h3>
+        <hr class="section-divider">
 
-<h1>APRAJITHA CORPORATE SERVICES</h1>
+        <!-- Segment 2: Instructors Section -->
+        <div id="teachers" class="segment-block">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Instructors</h2>
+                <p class="section-subtitle">Learn directly from dedicated professionals experienced in guiding students through software mechanics and digital workflows.</p>
+            </div>
+            
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <div class="teacher-avatar">NK</div>
+                    <h3>Naveen Kumar</h3>
+                    <span class="teacher-badge">Senior Technical Lead</span>
+                    <p>Specializes in core logic systems architecture, object-oriented concepts, and advanced application setup engineering.</p>
+                </div>
 
-<p>
+                <div class="teacher-card">
+                    <div class="teacher-avatar">S</div>
+                    <h3>Shreenithi</h3>
+                    <span class="teacher-badge">Web & Layout Design Specialist</span>
+                    <p>Expert in UI rendering layouts, client-side interactions, typewriting accuracy workflows, and creative project development.</p>
+                </div>
+            </div>
+        </div>
 
-Empowering businesses with trusted Compliance,
-Payroll, Labour Law, Licensing and HR Solutions.
+        <hr class="section-divider">
 
-Building Excellence Through Integrity,
-Innovation and Professional Commitment.
+        <!-- Segment 3: Advanced Typing Split Layout -->
+        <div id="typewriting" class="segment-block">
+            <div class="typing-box">
+                <div class="typing-layout">
+                    <div class="typing-info">
+                        <h3>Professional Typewriting Lab</h3>
+                        <p>Develop fast and accurate typing habits without looking down at your keys. Essential for professional computer workflows and execution speeds.</p>
+                    </div>
+                    
+                    <div class="progress-wrapper">
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Foundation Target Speed</span>
+                                <span>25 WPM</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-fill progress-fill-60"></div>
+                            </div>
+                        </div>
 
-</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Professional Target Speed</span>
+                                <span>40 WPM</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-fill progress-fill-100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div class="buttons">
+        <hr class="section-divider">
 
-<a href="about.html" class="btn btn1">
-Explore Company
-</a>
+        <!-- Segment 4: Secure Form Entry Section -->
+        <div id="apply" class="segment-block">
+            <div class="form-section">
+                <div class="form-title-wrapper">
+                    <h2>Admission Request Form</h2>
+                </div>
+                <p class="form-subtitle">Submit your baseline timing slots and course preferences to reserve your training setup.</p>
+                
+                <form action="https://formspree.io/f/xrenqrpz" method="POST">
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="first_name" required placeholder="Deepak">
+                        </div>
 
-<a href="https://www.aprajitha.com/" target="_blank" class="btn btn2">
-Official Website
-</a>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="last_name" required placeholder="Sankar">
+                        </div>
+                    </div>
 
-</div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" name="phone_number" required placeholder="98765 43210">
+                    </div>
 
-</div>
+                    <div class="form-group">
+                        <label>Select Your Timing Slot</label>
+                        <select name="selected_batch" required>
+                            <option value="" disabled selected>-- Choose a Batch --</option>
+                            <option value="morning">Morning Batch (09:00 AM - 11:00 AM)</option>
+                            <option value="evening">Evening Batch (04:00 PM - 06:00 PM)</option>
+                        </select>
+                    </div>
 
-</section>
+                    <div class="form-group">
+                        <label>Select Courses You Want:</label>
+                        <div class="checkbox-card-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course_python" value="Yes"> Python Programming
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course_cpp" value="Yes"> C & C++ Language
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course_java" value="Yes"> Java Programming
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course_javascript" value="Yes"> JavaScript Basics
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course_webdev" value="Yes"> Web Development
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="course_digitalmarketing" value="Yes"> Digital Marketing
+                            </label>
+                            <label class="checkbox-item highlighted">
+                                <input type="checkbox" name="course_typewriting" value="Yes" checked> Include Typewriting Course
+                            </label>
+                        </div>
+                    </div>
 
-<div class="scroll">
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
 
-⬇
+    </div>
 
-</div>
-
-<footer>
-
-© 2026 Aprajitha Corporate Services | Designed by Deepak Sankar
-
-</footer>
+    <!-- Structured Footer Layout -->
+    <div class="footer">
+        <p>&copy; 2026 IPL Tech Center. All training rights reserved.</p>
+    </div>
 
 </body>
-
 </html>
