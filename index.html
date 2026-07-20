@@ -45,9 +45,37 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Fixed Background Image Container with Proper Blur Overlay */
+        .bg-img {
+            position: relative;
+            min-height: 100vh;
+            background-image: url("kit.jfif");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Backdrop Blur & Dimming Overlay */
+        .bg-img::before {
+            content: "";
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.4); /* Dark translucent overlay */
+            backdrop-filter: blur(8px); /* Image Blur */
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1;
+        }
+
         /* Fixed Glassmorphism Navigation */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(60, 82, 153, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 16px 40px;
@@ -112,12 +140,13 @@
             color: var(--youtube-hover);
         }
 
-        /* Hero Welcome Section */
+        /* Hero Section floating over Blurred Background */
         .hero {
-            background: radial-gradient(120% 120% at 50% 0%, #ffffff 60%, var(--brand-light) 100%);
+            position: relative;
+            z-index: 2; /* Sits above the blur overlay */
             text-align: center;
             padding: 100px 24px 80px;
-            border-bottom: 1px solid var(--border-color);
+            color: #ffffff;
         }
 
         .hero h1 {
@@ -129,19 +158,21 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero h1 span {
-            color: var(--brand-primary);
+            color: #38bdf8;
             position: relative;
             display: inline-block;
         }
 
         .hero p {
             font-size: 19px;
-            color: var(--text-muted);
+            color: #f1f5f9;
             max-width: 580px;
             margin: 0 auto 36px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         .hero-actions {
@@ -591,13 +622,15 @@
         </div>
     </div>
 
-    <!-- Hero Section Banner -->
-    <div class="hero">
-        <h1>Learn Programming & <span>Typewriting</span> Layout</h1>
-        <p>Start your computer skills journey. Learn step-by-step from zero experience with individual computer access setups.</p>
-        <div class="hero-actions">
-            <a href="#apply" class="btn btn-primary">Fill Admission Form</a>
-            <a href="https://youtube.com/@ipltechnologies5781?si=83vx25Fw5mRDi_dX" target="_blank" class="btn btn-youtube">Watch Content on YouTube</a>
+    <!-- Background Image Hero Section -->
+    <div class="bg-img">
+        <div class="hero">
+            <h1>Learn Programming & <span>Typewriting</span> Layout</h1>
+            <p>Start your computer skills journey. Learn step-by-step from zero experience with individual computer access setups.</p>
+            <div class="hero-actions">
+                <a href="#apply" class="btn btn-primary">Fill Admission Form</a>
+                <a href="https://youtube.com/@ipltechnologies5781?si=83vx25Fw5mRDi_dX" target="_blank" class="btn btn-youtube">Watch Content on YouTube</a>
+            </div>
         </div>
     </div>
 
